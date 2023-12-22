@@ -1,0 +1,5 @@
+{
+  "subject": "Marketing Email Subject",
+  "templateDir": "templates/1",
+  "recipientsCSV": "recipients.csv"
+}

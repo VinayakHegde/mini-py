@@ -10,7 +10,7 @@ YouTube video downloader is a simple program that can be used to download YouTub
 The program was created with Python3 and `pytube`.
 
 use this for install pytube
-`pip3 install requirements.txt`
+`pip3 install -r requirements.txt`
 
 ## 🤖 How to run
 `python3 main.py`

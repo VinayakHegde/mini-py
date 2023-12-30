@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} {{user.username}} - Flask App{% endblock %}
+{% block content %}
+  {% if is_edit == True %}
+    <h1> Edit User</h1>
+    <a href="{{url_for('view', user_id=user.id)}}">Back to Details</a>
+    {% with action=url_for('edit', user_id=user.id), username=user.username, email=user.email %}
+      {% include 'partials/user-form.html' %}
+    {% endwith %}
+  {% endif %}
+  {% if is_edit == False %}
+
+  <h1> User Details</h1>
+  <a href="{{ url_for('home') }}">Back to Users</a>
+  <div class="form-group mt-3">
+    <label for="username">Username</label>
+    <div readonly type="text" name="username" id="username" class="form-control">{{user.username}}</div>
+  </div>
+  <div class="form-group mt-3">
+    <label for="email">Email</label>
+    <div readonly type="email" name="email" id="email" class="form-control">{{user.email}}</div>
+  </div>
+  <div class="form-group mt-3">
+    <a href="{{ url_for('edit', user_id=user.id) }}" class="btn btn-primary">Edit</a>
+    <a href="{{ url_for('remove', user_id=user.id) }}" class="btn btn-danger">Remove</a>
+  </div>
+  {% endif %}
+{%endblock %}
